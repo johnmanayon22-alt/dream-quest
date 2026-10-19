@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create a Quotation — DREAM QUEST</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav"><a class="brand" href="index.html"><span class="dq">DQ</span><span>DREAM QUEST<small>EVENT
+                        ESSENTIALS</small></span></a><input type="checkbox" id="t"><label for="t"
+                class="burger">&#9776;</label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rentals.html">Rental Catalog</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="btn" href="quotation.html">Create a Quotation</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="wrap">
+            <h1>Create a Quotation</h1>
+            
+            <form id="bf"><label>Customer name<input id="name" type="text" required></label><label>Contact number<input
+                        id="phone" type="tel" required></label><label>Email address<input id="email"
+                        type="email"></label><label>Event name<input id="eventName" type="text"></label><label>Event
+                    type<select id="eventType">
+                        <option>Wedding</option>
+                        <option>Birthday</option>
+                        <option>Corporate</option>
+                        <option>Family Gathering</option>
+                    </select></label><label>Event date<input id="eventDate" type="date" required></label><label>Rental
+                    start date<input id="start" type="date"></label><label>Rental end date<input id="end"
+                        type="date"></label><label class="full">Delivery address<input id="address" type="text"
+                        required></label><label>Selected rental products<select id="products" multiple size="5">
+                        <option>Monoblock Chair</option>
+                        <option>Tiffany Chair</option>
+                        <option>Folding Chair</option>
+                        <option>Round Table</option>
+                        <option>Rectangular Table</option>
+                        <option>Cocktail Table</option>
+                        <option>Tablecloths &amp; Chair Covers</option>
+                    </select></label><label>Requested quantities<textarea id="quantities" rows="5"
+                        placeholder="e.g. Tiffany Chair x 50"></textarea></label><label class="full">Additional
+                    services<select id="service">
+                        <option>None</option>
+                        <option>Delivery</option>
+                        <option>Setup</option>
+                        <option>Pick-up</option>
+                    </select></label><label class="full">Special instructions<textarea id="instructions"
+                        rows="3"></textarea></label>
+                <div class="full"><button class="btn fill" type="submit">Submit Quotation Request</button></div>
+                <div id="ok" class="note full" style="display:none"></div>
+            </form>
+            <script>
+                document.getElementById('bf').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var g = function (i) { return document.getElementById(i).value.trim() };
+                    var list = []; try { list = JSON.parse(localStorage.getItem('dqBookings') || '[]') } catch (x) { }
+                    var max = list.reduce(function (m, b) { var n = parseInt(String(b.id).replace(/\D/g, ''), 10) || 0; return n > m ? n : m }, 0);
+                    var id = 'BK-' + String(max + 1).padStart(3, '0');
+                    var prods = Array.prototype.map.call(document.getElementById('products').selectedOptions, function (o) { return o.value });
+                    list.push({ id: id, createdAt: new Date().toISOString(), name: g('name'), phone: g('phone'), email: g('email'), eventName: g('eventName'), eventType: g('eventType'), eventDate: g('eventDate'), start: g('start'), end: g('end'), address: g('address'), products: prods, quantities: g('quantities'), service: g('service'), instructions: g('instructions'), status: 'Pending' });
+                    try { localStorage.setItem('dqBookings', JSON.stringify(list)) } catch (x) { alert('Could not save the request in this browser.'); return }
+                    var ok = document.getElementById('ok'); ok.textContent = 'Thank you! Your request was received. Reference no.: ' + id + '. We will contact you to confirm.'; ok.style.display = 'block'; e.target.reset(); ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            </script>
+            
+            <div class="btns"><a class="btn" href="quotation.html" title="Use your browser's print">Use Ctrl/Cmd+P to
+                    print</a></div>
+        </div>
+    </section>
+    <footer>
+        <div class="wrap">
+            <p class="brand" style="justify-content:center">DREAM QUEST — EVENT ESSENTIALS</p>
+            
+            <p><a href="admin.html">Admin</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>

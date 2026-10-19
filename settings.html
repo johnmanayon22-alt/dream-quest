@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Settings — DREAM QUEST</title>
+    <link rel="stylesheet" href="style.css">
+    <script>if (sessionStorage.getItem('dqAdmin') !== '1') location.replace('admin.html')</script>
+</head>
+
+<body>
+    <div class="app">
+        <aside class="side">
+            <div class="brand"><span class="dq">DQ</span><span>DREAM QUEST<small>EVENT ESSENTIALS</small></span></div><a
+                href="dashboard.html">Dashboard</a><a href="quotation.html">Create Quotation</a><a
+                href="dashboard.html#q">Quotations</a><a href="bookings.html">Customer Bookings</a><a
+                href="rentals.html">Products</a><a href="rentals.html#chairs">Inventory</a><a
+                href="customers.html">Customers</a><a href="settings.html" class=on>Settings</a><a
+                href="index.html">Back to Website</a><a href="admin.html"
+                onclick="sessionStorage.removeItem('dqAdmin')">Log Out</a>
+        </aside>
+        <main class="main">
+            <h1>Settings</h1>
+           
+            <h2>Business Information</h2>
+            <p class="muted">DREAM QUEST — EVENT ESSENTIALS<br>Phone: 0900 000 0000 · Email:
+                hello@dreamquest.example<br>Address: Sample Street, Your City</p>
+            <h2>Sample Rental Pricing</h2>
+            <div class="tw">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monoblock Chair</td>
+                            <td>₱15 / day</td>
+                        </tr>
+                        <tr>
+                            <td>Tiffany Chair</td>
+                            <td>₱45 / day</td>
+                        </tr>
+                        <tr>
+                            <td>Folding Chair</td>
+                            <td>₱25 / day</td>
+                        </tr>
+                        <tr>
+                            <td>Round Table</td>
+                            <td>₱150 / day</td>
+                        </tr>
+                        <tr>
+                            <td>Rectangular Table</td>
+                            <td>₱120 / day</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2>Delivery Policy </h2>
+            <p class="muted">Delivery fee based on distance; pick-up after the event.</p>
+            <h2>Rental Terms </h2>
+            <p class="muted">Refundable security deposit; damaged or missing items charged at replacement cost.</p>
+        </main>
+    </div>
+</body>
+
+</html>

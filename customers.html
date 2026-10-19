@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Customers — DREAM QUEST</title>
+    <link rel="stylesheet" href="style.css">
+    <script>if (sessionStorage.getItem('dqAdmin') !== '1') location.replace('admin.html')</script>
+</head>
+
+<body>
+    <div class="app">
+        <aside class="side">
+            <div class="brand"><span class="dq">DQ</span><span>DREAM QUEST<small>EVENT ESSENTIALS</small></span></div><a
+                href="dashboard.html">Dashboard</a><a href="quotation.html">Create Quotation</a><a
+                href="dashboard.html#q">Quotations</a><a href="bookings.html">Customer Bookings</a><a
+                href="rentals.html">Products</a><a href="rentals.html#chairs">Inventory</a><a href="customers.html"
+                class=on>Customers</a><a href="settings.html">Settings</a><a href="index.html">Back to Website</a><a
+                href="admin.html" onclick="sessionStorage.removeItem('dqAdmin')">Log Out</a>
+        </aside>
+        <main class="main">
+            <h1>Customers</h1>
+           
+            <div class="tw">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Contact</th>
+                            <th>Rental History</th>
+                            <th>Quotation History</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Santos</td>
+                            <td>0900 111 2222 · maria@example.com</td>
+                            <td>Wedding, Nov 2026</td>
+                            <td>DQ-0001 (Accepted)</td>
+                        </tr>
+                        <tr>
+                            <td>John Reyes</td>
+                            <td>0900 333 4444 · john@example.com</td>
+                            <td>Birthday, Nov 2026</td>
+                            <td>DQ-0002 (Pending)</td>
+                        </tr>
+                        <tr>
+                            <td>Ana Cruz</td>
+                            <td>0900 555 6666 · ana@example.com</td>
+                            <td>None yet</td>
+                            <td>DQ-0003 (Draft)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

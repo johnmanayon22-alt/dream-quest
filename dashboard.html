@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard — DREAM QUEST</title>
+    <link rel="stylesheet" href="style.css">
+    <script>if (sessionStorage.getItem('dqAdmin') !== '1') location.replace('admin.html')</script>
+</head>
+
+<body>
+    <div class="app">
+        <aside class="side">
+            <div class="brand"><span class="dq">DQ</span><span>DREAM QUEST<small>EVENT ESSENTIALS</small></span></div><a
+                href="dashboard.html" class=on>Dashboard</a><a href="quotation.html">Create Quotation</a><a
+                href="dashboard.html#q">Quotations</a><a href="bookings.html">Customer Bookings</a><a
+                href="rentals.html">Products</a><a href="rentals.html#chairs">Inventory</a><a
+                href="customers.html">Customers</a><a href="settings.html">Settings</a><a href="index.html">Back to
+                Website</a><a href="admin.html" onclick="sessionStorage.removeItem('dqAdmin')">Log Out</a>
+        </aside>
+        <main class="main">
+            <h1>Dashboard</h1>
+            
+            <div class="stats">
+                <div class="stat"><b>24</b><span>Total Quotations</span></div>
+                <div class="stat"><b id="pend">5</b><span>Pending Bookings</span></div>
+                <div class="stat"><b>128</b><span>Available Products</span></div>
+                <div class="stat"><b>3</b><span>Active Rentals</span></div>
+            </div>
+            <h2 id="q">Recent Quotations</h2>
+            <div class="tw">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quotation No.</th>
+                            <th>Customer</th>
+                            <th>Event Date</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DQ-0001</td>
+                            <td>Maria Santos</td>
+                            <td>2026-11-02</td>
+                            <td>₱4,650</td>
+                            <td><span class="st Accepted">Accepted</span></td>
+                            <td><a href="quotation.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>DQ-0002</td>
+                            <td>John Reyes</td>
+                            <td>2026-11-10</td>
+                            <td>₱3,200</td>
+                            <td><span class="st Pending">Pending</span></td>
+                            <td><a href="quotation.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>DQ-0003</td>
+                            <td>Ana Cruz</td>
+                            <td>2026-11-15</td>
+                            <td>₱8,500</td>
+                            <td><span class="st Draft">Draft</span></td>
+                            <td><a href="quotation.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>DQ-0004</td>
+                            <td>Luis Garcia</td>
+                            <td>2026-11-20</td>
+                            <td>₱1,800</td>
+                            <td><span class="st Rejected">Rejected</span></td>
+                            <td><a href="quotation.html">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="empty">
+                <h3>NO QUOTATIONS YET</h3>
+                <p class="muted">Saved quotations will appear here.</p>
+                <p class="muted"></p><a class="btn fill" href="quotation.html">+ Create New
+                    Quotation</a>
+            </div>
+        </main>
+    </div>
+    <script>try { var l = JSON.parse(localStorage.getItem("dqBookings") || "null"); if (l) document.getElementById("pend").textContent = l.filter(function (b) { return b.status === "Pending" }).length } catch (e) { }</script>
+</body>
+
+</html>
